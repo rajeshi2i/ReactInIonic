@@ -4,21 +4,33 @@ import * as ReactDOM from 'react-dom';
 interface State {}
 
 class ReactChildComponent extends React.Component<State> {
-
+  state: any;
   constructor(props) {
     super(props);
+    let lis = [];
+    for (var i=0; i<10000; i++) {
+      lis.push({
+        list: i
+      });
+    }
+    this.state = {
+      lis
+    };
   }
 
   public render() {
-    var lis = [];
-
-    for (var i=0; i<10; i++) {
-        lis.push(<li>{i + 1}</li>);
-    }
+    const {lis} = this.state;
+    const list = lis.map((i) =>
+      <li key={i.list}>
+        React component List - {i.list}
+      </li>
+    );
     return(
       <div>
         <h1>React Component</h1>
-        <ul>{lis}</ul>
+        <ul>
+          { list }
+        </ul>
       </div>
     );
   }
