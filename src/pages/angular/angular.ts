@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AppUtilProvider } from '../../providers/app-util/app-util';
 
 /**
  * Generated class for the AngularPage page.
@@ -15,14 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AngularPage {
 
+  count: Number;
+
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public util: AppUtilProvider,
   ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AngularPage');
+  ionViewWillEnter() {
+    this.count = this.util.getListCount();
   }
 
 }

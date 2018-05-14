@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AppUtilProvider } from '../../providers/app-util/app-util';
 
 /**
  * Generated class for the ReactPage page.
@@ -14,12 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'react.html',
 })
 export class ReactPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  count: Number;
+  constructor(
+    public navCtrl: NavController,
+    public util: AppUtilProvider,
+    public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReactPage');
+  ionViewWillEnter() {
+    this.count = this.util.getListCount();
   }
 
 }

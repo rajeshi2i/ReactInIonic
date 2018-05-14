@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, Input } from '@angular/core';
 import { ReactChildComponentView } from '../react/child/child';
 
 /**
@@ -14,14 +14,28 @@ import { ReactChildComponentView } from '../react/child/child';
 export class TestReactComponent implements OnInit{
 
   text: string;
+  _count: Number = 0;
 
   constructor(public injector: Injector) {
-    console.log('Hello TestReactComponent Component');
     this.text = 'React Component Container';
   }
 
-  public ngOnInit() {
-    ReactChildComponentView.initialize();
+  @Input()
+  set count(count: Number) {
+    this._count = count || 0;
+    this.iterateList(this._count);
+  }
+
+  public ngOnInit(){
+    if(this._count) {
+      this.iterateList(this._count);
+    }
+  }
+
+  private iterateList(count: Number) {
+    if(count) {
+      ReactChildComponentView.initialize(count);
+    }
   }
 
 }

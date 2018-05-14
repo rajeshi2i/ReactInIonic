@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import * as _ from 'lodash';
 
 /**
  * Generated class for the TestAngularComponent component.
@@ -14,15 +16,25 @@ export class TestAngularComponent {
 
   list: Array<object> = [];
   text: string;
+  _count: Number = 0;
 
   constructor() {
-    console.log('Hello TestAngularComponent Component');
-    for (let i=0; i<10000; i++) {
-      this.list.push({
-        list: i
-      });
-    }
     this.text = 'Angular Component';
+  }
+
+  @Input()
+  set count(count: Number) {
+    this._count = count || 0;
+    this.iterateList(this._count);
+  }
+
+  iterateList(count: Number) {
+    this.list = [];
+    _.times(count, (i) => {
+      this.list.push({
+        list: i+1
+      });
+    });
   }
 
 }
