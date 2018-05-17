@@ -1,0 +1,40 @@
+<!--
+  Generated template for the GetMetricsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>getMetrics</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button round outline (click)="getAngularMetrics()">Angular</button>
+      </ion-col>
+      <ion-col col-6>
+        <b>{{angular}}</b> in Sec
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button color="secondary" round outline (click)="getReactMetrics()">React</button>
+      </ion-col>
+      <ion-col col-6>
+        <b>{{react}}</b> in Sec
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+          <button ion-button color="danger" round outline (click)="resetAll()">Reset</button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

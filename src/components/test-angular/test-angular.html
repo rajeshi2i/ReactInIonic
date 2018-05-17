@@ -2,8 +2,8 @@
 <div>
   <h2 text-center>{{text}}</h2>
   <div id="angular-component-container">
-    <ul *ngIf="list">
-      <li *ngFor="let i of list"> Angular List Count - {{i.list}}</li>
-    </ul>
+    <div *ngIf="list">
+      <div class="card card-ios" *ngFor="let i of list"> Angular List Count - {{i.list}} </div>
+    </div>
   </div>
 </div>

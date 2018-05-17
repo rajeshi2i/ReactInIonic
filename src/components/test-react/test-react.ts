@@ -34,7 +34,8 @@ export class TestReactComponent implements OnInit{
 
   private iterateList(count: Number) {
     if(count) {
-      ReactChildComponentView.initialize(count);
+      const rcComponentName = count > 10000 ? 'react-list' : '';
+      ReactChildComponentView.initialize(count, {name: rcComponentName, id: 'react-component-container'});
     }
   }
 

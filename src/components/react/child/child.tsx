@@ -1,39 +1,22 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as _ from 'lodash';
-
-interface State {}
-
-interface Props {
-  count?: Number;
-}
-
-class ReactChildComponent extends React.Component<Props, State> {
-  state: any;
-  constructor(props) {
-    super(props);
-  }
-
-  public render() {
-    let card = [];
-    _.times(this.props.count, (i) => {
-      card.push(<li key={i}> React component List - {i+1} </li>);
-    });
-    return(
-      <ul>
-        { card }
-      </ul>
-    );
-  }
-};
+import { ReactChildComponent } from './reactList';
+import { ReactChildComponent1 } from './reactList1';
 
 export class ReactChildComponentView {
 
-  static initialize(count) {
-    ReactDOM.render(<ReactChildComponent count={count}/>, this.getReactRenderDom());
+  static initialize(count, component) {
+    switch(component.name) {
+      case 'react-list':
+        ReactDOM.render(<ReactChildComponent count={count}/>, this.getReactRenderDom(component.id));
+        break;
+      default:
+        ReactDOM.render(<ReactChildComponent1 count={count}/>, this.getReactRenderDom(component.id));
+        break;
+    }
   }
 
-  static getReactRenderDom() {
-    return document.getElementById('react-component-container');
+  static getReactRenderDom(id) {
+    return document.getElementById(id);
   }
 }

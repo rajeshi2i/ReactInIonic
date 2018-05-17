@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class AppUtilProvider {
-  listCount: Number = 0;
+  listCount: Number = 1000;
   constructor() {
     console.log('Hello AppUtilProvider Provider');
   }

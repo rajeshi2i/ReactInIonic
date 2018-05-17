@@ -4,7 +4,7 @@ import { AngularPage } from './angular';
 
 @NgModule({
   declarations: [
-    AngularPage,
+    AngularPage
   ],
   imports: [
     IonicPageModule.forChild(AngularPage),

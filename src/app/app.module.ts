@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { ReactPage } from '../pages/react/react';
 import { AngularPage } from '../pages/angular/angular';
 import { HomePage } from '../pages/home/home';
+import { GetMetricsPage } from '../pages/get-metrics/get-metrics';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +22,7 @@ import { AppUtilProvider } from '../providers/app-util/app-util';
     ReactPage,
     AngularPage,
     HomePage,
+    GetMetricsPage,
     TabsPage
   ],
   imports: [
@@ -35,6 +37,7 @@ import { AppUtilProvider } from '../providers/app-util/app-util';
     ReactPage,
     AngularPage,
     HomePage,
+    GetMetricsPage,
     TabsPage
   ],
   providers: [
